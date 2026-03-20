@@ -3,7 +3,7 @@
 
 **Required plugins**: Microsoft Entra, Natural Language to KQL to Microsoft Sentinel
 
-**Required Input**: Conditional Access Policy Name or ID: \<PolicyNameOrId\>
+**Required Input**: Conditional Access Policy Name or ID: <PolicyNameOrId>
 
 **Description**: Performs a comprehensive deep-dive analysis of an individual Conditional Access policy within the context of all other policies in the tenant. Produces a structured table covering intent, ownership, scope, exclusions, controls, overlaps, lifecycle, and critical thinking insights that go beyond binary configuration checks.
 
@@ -24,7 +24,7 @@ Row 3 – Status: Is the policy currently Enabled, Report-only, or Disabled? If 
 Row 4 – Scope: Which users, groups, or directory roles are included? Explain the likely rationale for this scope — for example, is it targeting all users, privileged roles only, or a specific department? Flag if the scope seems too broad or too narrow compared to the policy's stated intent.
 Row 5 – Scope Maintenance: Which groups or role assignments feed the inclusion list? Assess whether those groups appear to be dynamically managed or manually maintained, and recommend a review cadence (e.g., quarterly access review). Note any risk if membership goes stale.
  ```
-4. Analyse exclusions and identify any risky gaps in coverage.
+4. Analyze exclusions and identify any risky gaps in coverage.
  ```
 Continuing the table for Conditional Access policy <PolicyNameOrId>, add this row:
 Row 6 – Exclusions: List every exclusion — users, groups, applications, locations, and device platforms. For each exclusion, explain the likely business justification and flag any that look risky. Specifically call out: (a) break-glass / emergency access accounts — are they correctly excluded and are they protected by a separate policy? (b) service accounts or app registrations — could they be an unmonitored bypass? (c) any exclusion that effectively nullifies the policy for a high-risk population.
@@ -51,7 +51,7 @@ Continuing the table for Conditional Access policy <PolicyNameOrId>, add these r
 Row 11 – User Impact: Based on the policy's scope, conditions, and controls, describe the top 3 most likely user friction points or help-desk ticket drivers. For example: users prompted for MFA on every sign-in from untrusted locations, legacy app breakage from blocking legacy authentication, or BYOD users unable to access resources requiring compliant devices. Provide practical mitigation suggestions for each.
 Row 12 – Known Failures: Identify any "it breaks when…" scenarios — situations where this policy is known or likely to cause issues. Examples: VPN split-tunnel scenarios, guest users accessing shared resources, service accounts using basic auth, or kiosk/shared devices. Note any standing exceptions that are routinely requested and whether those exceptions introduce risk.
  ```
-9. Analyse overlap, conflicts, and duplication with other tenant policies, then assess lifecycle and retirement readiness.
+9. Analyze overlap, conflicts, and duplication with other tenant policies, then assess lifecycle and retirement readiness.
  ```
 Continuing the table for Conditional Access policy <PolicyNameOrId>, add these rows:
 Row 13 – Overlap / Conflict: Using the full list of Conditional Access policies retrieved earlier, identify any policies that overlap with this one in terms of targeted users, apps, and conditions. For each overlap, state whether it is: (a) complementary — they work together as intended, (b) redundant — one could be merged into the other, or (c) conflicting — they impose contradictory controls (e.g., one grants access while another blocks it for the same population). Provide specific policy names and explain the interaction.

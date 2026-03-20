@@ -15,6 +15,6 @@
 ],
 "promptbookinputs":
 [
- {"name":"PolicyNameOrId","description":"The display name or object ID of the Conditional Access policy to analyse"}
+ {"name":"PolicyNameOrId","description":"The display name or object ID of the Conditional Access policy to analyze"}
 ],
 "visibility":"Private","tags":null}
